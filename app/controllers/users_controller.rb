@@ -11,9 +11,10 @@ class UsersController < ApplicationController
     if params[:name] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(params) # We can use mass assignment here because my params hash has key/value pairs that correlate to the attributes for the user
       # redirect to user show page (not erb) because we're not going to use the insance variable, we just need to go to the show page
+      session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else
-
+      redirect '/login'
     end
   end
 
@@ -40,7 +41,6 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
-
     erb :'/users/show'
   end
 
