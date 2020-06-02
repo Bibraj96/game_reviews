@@ -6,8 +6,15 @@ class UsersController < ApplicationController
   end
 
   # create new user and persist that user to the DB
+  # only persist users that have a name email and password using if statement
   post '/users' do
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+      @user = User.create(params) # We can use mass assignment here because my params hash has key/value pairs that correlate to the attributes for the user
+      # redirect to user show page (not erb) because we're not going to use the insance variable, we just need to go to the show page
+      redirect "/users/#{@user.id}"
+    else
 
+    end
   end
 
   # renders login form
@@ -26,14 +33,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id # Log user in 
       redirect "users/#{@user.id}"
     else
-    
       # tell the user they entered invalid credentials
       #redirect to the login page
     end
   end
 
   get '/users/:id' do
-    "User show route"
+    erb :'/users/show'
   end
 
 end
