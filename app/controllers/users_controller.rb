@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  # renders signup form
+  get '/signup' do
+    erb :signup
+  end
+
+  # create new user and persist that user to the DB
+  post '/users' do
+
+  end
+
   # renders login form
   get '/login' do
     erb :login
@@ -24,10 +34,6 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     "User show route"
-  end
-
-  get '/signup' do
-
   end
 
 end

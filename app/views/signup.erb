@@ -1,11 +1,14 @@
-<h1>Log in!</h1>
+<h1>Sign Up!</h1>
 
-<form action="/login" method="POST">
+<form action="/users" method="POST">
+  <label for="name">Name: </label>
+  <input type="text" name="name" value="">
+
   <label for="email">Email: </label>
   <input type="text" name="email" value="">
 
   <label for="password">Password: </label>
   <input type="text" name="password" value="">
-  
-  <input type="submit" value="Login">
+
+  <input type="submit" value="Sign Up">
 </form>
