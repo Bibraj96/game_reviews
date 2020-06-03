@@ -13,12 +13,22 @@ class ReviewsController < ApplicationController
       redirect '/'
     end
 
-    if params[:content] != "" || params[:game] != ""
+    if params[:content] != "" && params[:game] != ""
       @review = Review.create(content: params[:content], game: params[:game], user_id: current_user.id)
       redirect "/reviews/#{@review.id}"
     else
       redirect '/reviews/new'
     end
+  end
+
+  get '/reviews/:id' do
+    @review = Review.find(params[:id])
+    erb :'/reviews/show'
+  end
+
+  # this sends us to '/reviews/edit.erb'
+  get '/reviews/:id/edit' do
+    erb :'/reviews/edit'
   end
 
   # post reviews to create new review
