@@ -5,6 +5,22 @@ class ReviewsController < ApplicationController
     erb :'/reviews/new'
   end
 
+    # create new reveiw and save it to the DB
+    # only save if it has content
+    # only create a review if the user is logged in
+  post '/reviews' do
+    if !logged_in?
+      redirect '/'
+    end
+
+    if params[:content] != "" || params[:game] != ""
+      @review = Review.create(content: params[:content], game: params[:game], user_id: current_user.id)
+      redirect "/reviews/#{@review.id}"
+    else
+      redirect '/reviews/new'
+    end
+  end
+
   # post reviews to create new review
 
   # show route for review
