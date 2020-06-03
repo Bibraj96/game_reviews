@@ -60,6 +60,16 @@ class ReviewsController < ApplicationController
     end
   end
 
+  delete '/reviews/:id' do
+    @review = Review.find(params[:id])
+    if current_user == @review.user
+      @review.destroy
+      
+    else
+
+    end
+  end
+
   # post reviews to create new review
 
   # show route for review
