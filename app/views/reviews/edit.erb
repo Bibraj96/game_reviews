@@ -1,1 +1,12 @@
-EDIT FORM
+<h2>Edit Your Review</h2>
+
+<form action="/reviews/<%= @review.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <label for="game">Game: </label>
+  <input type="text" name="game" value="<%= @review.game %>">
+  <br />
+  <label for="content">Content: </label>
+  <textarea name="content" value="<%= @review.content %>"></textarea>
+  <br />
+  <input type="submit" value="Edit">
+</form>
