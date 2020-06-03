@@ -1,8 +1,9 @@
-<h1>Your Reviews</h1>
+<h1>All Game Reviews</h1>
 <% @reviews.each do |review| %>
   <br>
-  <h2>Game:</h2> <%= review.game %>
+  <h3><a href="/reviews/<%= review.id %>"><%= review.game %> Review:</a></h3>
   <br>
-  <h2>Review:</h2> <%= review.content %>
+  <p><%= review.content %></p>
   <br>
+  <p>Written by: <%= review.user.name %></p>
 <% end %>
