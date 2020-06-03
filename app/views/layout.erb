@@ -15,9 +15,11 @@
   </head>
   <body>
     <div class="navbar">
+      <% if logged_in? %>
       <a href="/logout">Log Out</a>
       <a href="/reviews">All Reviews</a>
       <a href="/reviews/new">Write a Review</a>
+      <% end %>
 
     <div class="wrapper">
 
