@@ -64,16 +64,10 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if current_user == @review.user
       @review.destroy
-      
+      redirect '/reviews'
     else
-
+      redirect '/reviews'
     end
   end
-
-  # post reviews to create new review
-
-  # show route for review
-
-  # index page for all reviews
 
 end
