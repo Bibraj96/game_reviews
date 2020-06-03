@@ -34,6 +34,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id # Log user in 
       redirect "users/#{@user.id}"
     else
+      redirect '/login'
       # tell the user they entered invalid credentials
       #redirect to the login page
     end
