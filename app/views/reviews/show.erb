@@ -2,6 +2,8 @@ A Review!
 <p><%= @review.game %></p>
 <p><%= @review.content %></p>
 
-<a href="/reviews/<%= @review.id %>/edit">Edit This Review</a>
-<br>
-<a href="/reviews/delete">Delete This Review</a>
+<% if current_user == @review.user %>
+  <a href="/reviews/<%= @review.id %>/edit">Edit This Review</a>
+  <br>
+  <a href="/reviews/delete">Delete This Review</a>
+<% end %>
