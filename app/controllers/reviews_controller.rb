@@ -29,14 +29,30 @@ class ReviewsController < ApplicationController
   # this sends us to '/reviews/edit.erb'
   get '/reviews/:id/edit' do
     @review = Review.find(params[:id])
-    erb :'/reviews/edit'
+    if logged_in?
+      if @review.user == current_user
+       erb :'/reviews/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   # find review, edit review, redirect to show page
   patch '/reviews/:id' do
     @review = Review.find(params[:id])
-    @review.update(game: params[:game], content: params[:content])
-    redirect "/reviews/#{@review.id}"
+    if logged_in?
+      if @review.user == current_user
+        @review.update(game: params[:game], content: params[:content])
+        redirect "/reviews/#{@review.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   # post reviews to create new review
