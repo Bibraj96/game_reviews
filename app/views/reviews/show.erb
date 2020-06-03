@@ -3,7 +3,10 @@ A Review!
 <p><%= @review.content %></p>
 
 <% if current_user == @review.user %>
-  <a href="/reviews/<%= @review.id %>/edit">Edit This Review</a>
+  <a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
   <br>
-  <a href="/reviews/delete">Delete This Review</a>
+  <form action="/reviews/<%= @review.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete Review">
+  </form>
 <% end %>
