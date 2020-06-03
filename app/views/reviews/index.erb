@@ -1,0 +1,8 @@
+<h1>Your Reviews</h1>
+<% @reviews.each do |review| %>
+  <br>
+  <h2>Game:</h2> <%= review.game %>
+  <br>
+  <h2>Review:</h2> <%= review.content %>
+  <br>
+<% end %>
