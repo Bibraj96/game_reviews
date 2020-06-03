@@ -28,7 +28,13 @@ class ReviewsController < ApplicationController
 
   # this sends us to '/reviews/edit.erb'
   get '/reviews/:id/edit' do
+    @review = Review.find(params[:id])
     erb :'/reviews/edit'
+  end
+
+  # find review, edit review, redirect to 
+  patch '/reviews/:id' do
+    
   end
 
   # post reviews to create new review
