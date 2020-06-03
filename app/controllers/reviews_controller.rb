@@ -32,9 +32,11 @@ class ReviewsController < ApplicationController
     erb :'/reviews/edit'
   end
 
-  # find review, edit review, redirect to 
+  # find review, edit review, redirect to show page
   patch '/reviews/:id' do
-    
+    @review = Review.find(params[:id])
+    @review.update(game: params[:game], content: params[:content])
+    redirect "/reviews/#{@review.id}"
   end
 
   # post reviews to create new review
