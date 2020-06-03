@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   # get reviews/new to render a form to create a new review
   get '/reviews/new' do
-    erb :new
+    erb :'/reviews/new'
   end
 
   # post reviews to create new review
