@@ -14,9 +14,11 @@ class ReviewsController < ApplicationController
     end
 
     if params[:content] != "" && params[:game] != ""
+      flash[:message] = "You created a review!"
       @review = Review.create(content: params[:content], game: params[:game], user_id: current_user.id)
       redirect "/reviews/#{@review.id}"
     else
+      flash[:message] = "Unable to create a review. Please make sure all fields are filled out"
       redirect '/reviews/new'
     end
   end
@@ -49,7 +51,7 @@ class ReviewsController < ApplicationController
   patch '/reviews/:id' do
     @review = Review.find(params[:id])
     if logged_in?
-      if @review.user == current_user
+      if @review.user == current_user && params[:content] != ""
         @review.update(game: params[:game], content: params[:content])
         redirect "/reviews/#{@review.id}"
       else
