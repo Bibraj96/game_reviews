@@ -51,12 +51,13 @@ class ReviewsController < ApplicationController
   patch '/reviews/:id' do
     @review = Review.find(params[:id])
     if logged_in?
-      if @review.user == current_user && params[:content] != ""
-        @review.update(game: params[:game], content: params[:content])
+      @review.update(game: params[:game], content: params[:content])
+      if @review.save
         flash[:message] = "Review edited!"
         redirect "/reviews/#{@review.id}"
       else
-        redirect "users/#{current_user.id}"
+        flash[:errors] = "Unable to edit this review: #{@review.errors.full_messages.to_sentence}"
+        redirect "reviews/#{@review.id}/edit"
       end
     else
       redirect '/'
