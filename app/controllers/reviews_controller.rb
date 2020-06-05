@@ -14,8 +14,8 @@ class ReviewsController < ApplicationController
     end
 
     if params[:content] != "" && params[:game] != ""
-      flash[:message] = "You created a review!"
       @review = Review.create(content: params[:content], game: params[:game], user_id: current_user.id)
+      flash[:message] = "You created a review!"
       redirect "/reviews/#{@review.id}"
     else
       flash[:errors] = "Unable to create a review. Please make sure all fields are filled out"
