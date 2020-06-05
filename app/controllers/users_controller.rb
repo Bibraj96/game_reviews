@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       @user = User.create(params) # We can use mass assignment here because my params hash has key/value pairs that correlate to the attributes for the user
       # redirect to user show page (not erb) because we're not going to use the insance variable, we just need to go to the show page
       session[:user_id] = @user.id
+      flash[:message] = "You have successfully created a Game Reviews account!"
       redirect "/users/#{@user.id}"
     else
       redirect '/login'
@@ -31,10 +32,10 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(email: params[:email]) #Finds user
     if @user && @user.authenticate(params[:password]) # Authenticate 
-      session[:user_id] = @user.id # Log user in 
+      session[:user_id] = @user.id # Log user in
       redirect "users/#{@user.id}"
     else
-      flash[:message] = "Invalid credentials. Please enter a valid email and password!"
+      flash[:errors] = "Invalid credentials. Please enter a valid email and password!"
       redirect '/login'
       # tell the user they entered invalid credentials
       #redirect to the login page
