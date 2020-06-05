@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       @review = Review.create(content: params[:content], game: params[:game], user_id: current_user.id)
       redirect "/reviews/#{@review.id}"
     else
-      flash[:message] = "Unable to create a review. Please make sure all fields are filled out"
+      flash[:errors] = "Unable to create a review. Please make sure all fields are filled out"
       redirect '/reviews/new'
     end
   end
@@ -53,6 +53,7 @@ class ReviewsController < ApplicationController
     if logged_in?
       if @review.user == current_user && params[:content] != ""
         @review.update(game: params[:game], content: params[:content])
+        flash[:message] = "Review edited!"
         redirect "/reviews/#{@review.id}"
       else
         redirect "users/#{current_user.id}"
@@ -66,6 +67,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if current_user == @review.user
       @review.destroy
+      flash[:message] = "Review deleted!"
       redirect '/reviews'
     else
       redirect '/reviews'
