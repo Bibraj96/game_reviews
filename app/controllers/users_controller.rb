@@ -8,14 +8,15 @@ class UsersController < ApplicationController
   # create new user and persist that user to the DB
   # only persist users that have a name email and password using if statement
   post '/users' do
-    if params[:name] != "" && params[:email] != "" && params[:password] != ""
-      @user = User.create(params) # We can use mass assignment here because my params hash has key/value pairs that correlate to the attributes for the user
+    @user = User.create(params) # We can use mass assignment here because my params hash has key/value pairs that correlate to the attributes for the user
+    if @user.save
       # redirect to user show page (not erb) because we're not going to use the insance variable, we just need to go to the show page
       session[:user_id] = @user.id
       flash[:message] = "You have successfully created a Game Reviews account!"
       redirect "/users/#{@user.id}"
     else
-      redirect '/login'
+      flash[:errors] = "Account creation incomplete: #{@user.errors.full_messages.to_sentence}!"
+      redirect '/signup'
     end
   end
 
