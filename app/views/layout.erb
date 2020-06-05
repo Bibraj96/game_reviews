@@ -23,6 +23,11 @@
 
     <div class="wrapper">
 
+    <% if flash[:errors] %>
+      <h4><%= flash[:errors] %></h4>
+    <% end %>
+    <br>
+
     <% if flash[:message] %>
       <h4><%= flash[:message] %></h4>
     <% end %>
