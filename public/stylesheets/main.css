@@ -5,13 +5,21 @@ body {
 }
 
 div.wrapper {
-  text-align: center;
-
+  text-align: left;
+  background-color: #fff8f0;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  margin: 16px auto;
+  padding: 2.25%;
+  width: 85%;
 }
 
 div.navbar {
   background-color: #fff8f0;
-  border: solid 2px black;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
   margin-right: 90%;
   padding-left: 4px;
 }
