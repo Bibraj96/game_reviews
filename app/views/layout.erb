@@ -14,17 +14,19 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+
     <div class="navbar">
       <% if logged_in? %>
-      <a href="/logout">Log Out</a>
-      <a href="/reviews">All Reviews</a>
-      <a href="/reviews/new">Write a Review</a>
+     <p> <a href="/reviews/new">Write a Review</a> </p>
+     <p><a href="/reviews">All Reviews</a> </p>
+     <p><a href="/logout">Log Out</a> </p>
       <% end %>
+    </div>
 
     <div class="wrapper">
 
     <% if flash[:errors] %>
-      <h4><%= flash[:errors] %></h4>
+      <h4 style="color: #A55A75;"><%= flash[:errors] %></h4>
     <% end %>
     <br>
 
