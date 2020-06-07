@@ -14,7 +14,7 @@ A Sinatra CRUD app for users to write game reviews. In addition to creating, rea
 -Run `shotgun`. Head to your browser to open the app.
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/karuna24s/movie-review-sinatra-app. This project is intended to be a safe and welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Bibraj96/game_reviews. This project is intended to be a safe and welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
 The project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
