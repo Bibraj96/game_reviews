@@ -1,9 +1,11 @@
-<h2>Welcome, <%= @user.name %>!</h2>
-<h4>Email: <%= @user.email %></h4>
+<h2>Welcome!</h2>
 
-<% Review.all.each do |review| %>
+<h3><%=@user.name%>'s Reviews</h3>
+
+<% reviews = @user.reviews %>
+<% reviews.each do |review| %>
   <%= review.game %>
   <br><br>
   <%= review.content %>
   <br><br>
-<% end %>
+<% end %> 
