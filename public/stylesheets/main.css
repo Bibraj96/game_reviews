@@ -1,10 +1,11 @@
 
 body {
   background-color: #5A75A5;
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "ProximaNovaCond",sans-serif;
 }
 
 div.wrapper {
+  font-family: "ProximaNovaCond",sans-serif;
   text-align: left;
   background-color: #fff8f0;
   -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -12,10 +13,11 @@ div.wrapper {
   box-shadow: 0 0 10px rgba(0,0,0,.3);
   margin: 16px auto;
   padding: 2.25%;
-  width: 85%;
+  width: 75%;
 }
 
 div.navbar {
+  font-family: "ProximaNovaCond",sans-serif;
   background-color: #fff8f0;
   -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
