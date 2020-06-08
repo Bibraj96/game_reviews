@@ -1,13 +1,9 @@
 class ReviewsController < ApplicationController
 
-  # get reviews/new to render a form to create a new review
   get '/reviews/new' do
     erb :'/reviews/new'
   end
 
-    # create new reveiw and save it to the DB
-    # only save if it has content
-    # only create a review if the user is logged in
   post '/reviews' do
     if !logged_in?
       redirect '/'
@@ -33,7 +29,6 @@ class ReviewsController < ApplicationController
     erb :'/reviews/show'
   end
 
-  # this sends us to '/reviews/edit.erb'
   get '/reviews/:id/edit' do
     @review = Review.find(params[:id])
     if logged_in?
@@ -47,7 +42,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # find review, edit review, redirect to show page
   patch '/reviews/:id' do
     @review = Review.find(params[:id])
     if logged_in?
